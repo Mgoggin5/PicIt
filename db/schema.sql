@@ -1,4 +1,4 @@
--- Drops the blogger if it exists currently --
-DROP DATABASE IF EXISTS Picit;
--- Creates the "blogger" database --
-CREATE DATABASE Picit;
+DROP DATABASE IF EXISTS picit_db;
+CREATE DATABASE picit_db;
+USE picit_db;
+
