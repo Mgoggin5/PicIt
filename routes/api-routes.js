@@ -1,53 +1,49 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
 var db = require("../models")
 
 module.exports = function(app){
 
 
   app.get("/api/posts", function(req, res) {
-      db.Post.findAll({}).then(function(dbPost) {
-      res.json(dbPost);
+      db.travelinfo.findAll({}).then(function(dbtravelinfo) {
+      res.json(dbtravelinfo);
     });
   });
 
   app.get("/api/posts/:id", function(req, res){
-      db.Post.findOne({
+      db.travelinfo.findOne({
           where: {id: req.params.id}
-      }).then(function(dbPost){
-          res.json(dbPost)
+      }).then(function(dbtravelinfo){
+          res.json(dbtravelinfo)
       });
   });
  
 app.post("/api/posts", function(req, res){
-    db.Post.create(req.body).then(function(dbPost){
-        res.json(dbPost)
+    db.travelinfo.create(req.body).then(function(dbtravelinfo){
+        res.json(dbtravelinfo)
     });
 })
 
 
   app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+    db.travelinfo.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbtravelinfo) {
+      res.json(dbtravelinfo);
     });
   });
 
-  // PUT route for updating posts
+
   app.put("/api/posts", function(req, res) {
-    db.Post.update(
+    db.travelinfo.update(
       req.body,
       {
         where: {
           id: req.body.id
         }
-      }).then(function(dbPost) {
-      res.json(dbPost);
+      }).then(function(dbtravelinfo) {
+      res.json(dbtravelinfo);
     });
   });
 }
