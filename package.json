@@ -25,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/Mgoggin5/PicIt/issues"
   },
+  "homepage": "https://github.com/Mgoggin5/PicIt#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.6"
+  },
   "homepage": "https://github.com/Mgoggin5/PicIt#readme"
 }
