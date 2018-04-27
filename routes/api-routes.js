@@ -21,11 +21,11 @@ module.exports = function(app){
       });
   });
  
-app.travelinfo("/api/travelinfo", function(req, res){
-    db.travelinfo.create(req.body).then(function(dbtravelinfo){
-        res.json(dbtravelinfo)
-    });
-})
+// app.travelinfo("/api/travelinfo", function(req, res){
+//     db.travelinfo.create(req.body).then(function(dbtravelinfo){
+//         res.json(dbtravelinfo)
+//     });
+// })
 
 
   app.delete("/api/travelinfo/:id", function(req, res) {
@@ -50,4 +50,19 @@ app.travelinfo("/api/travelinfo", function(req, res){
       res.json(dbtravelinfo);
     });
   });
+
+
+
+// Add sequelize code to create a destination.
+app.post("/api/new", function(req, res) {
+  db.travelinfos.create({
+    //instead of req.bdy
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+    pages: req.body.pages
+  }).then(function(dbtravelinfos) {
+    res.json(dbtravelinfos);
+  });    
+});
 }
