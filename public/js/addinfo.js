@@ -6,24 +6,26 @@ $("#submit-btn").on("click", function(event) {
   
     // Make a newBook object
     var newDestination = {
-      destInput: $("#title").val().trim(),
-      author: $("#actiInput").val().trim(),
-      genre: $("#RestInput").val().trim(),
-      pages: $("#AttrInput").val().trim()
+      email: $("#emailadd").val().trim(),
+      destination: $("#destInput").val().trim(),
+      attractions: $("#attrInput").val().trim(),
+      activities: $("#actiInput").val().trim(),
+      restaurants: $("#restInput").val().trim()      
     };
   
+    console.log(newDestination);
     // Send an AJAX POST-request with jQuery
     $.post("/api/new", newDestination)
       // On success, run the following code
-      .then(function(data) {
+      .then(function(results) {
         // Log the data we found
-        console.log(data);
+        console.log("results: ", results);
       });
   
     // Empty each input box by replacing the value with an empty string
+    $("#emailadd").val("");
     $("#destInput").val("");
+    $("#attrInput").val("");
     $("#actiInput").val("");
-    $("#RestInput").val("");
-    $("#AttrInput").val("");
-  
+    $("#restInput").val("");    
   });
