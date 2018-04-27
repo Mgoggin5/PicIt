@@ -1,22 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
-    var travelinfo = sequelize.define("travelinfo", {
-      email: {
-        type: DataTypes.STRING,
-      },
-      destination: {
-        type: DataTypes.TEXT,
-      },
-      attractions: {
-        type: DataTypes.TEXT,
-      },
-      activities: {
-        type: DataTypes.TEXT,
-      },
-      destination: {
-        type: DataTypes.TEXT,
-      }
-    });  
+    var Travelinfo = sequelize.define("travelinfo", {
+        email: {
+          type: DataTypes.STRING,
+          // allowNull: false,
+        },
+        destination: {
+          type: DataTypes.TEXT,
+        },
+        attractions: {
+          type: DataTypes.TEXT,
+        },
+        activities: {
+          type: DataTypes.TEXT,
+        },
+        restaurants: {
+          type: DataTypes.TEXT,
+        },
+        }, {
+          timestamps: false
+        });  
   
-    return travelinfo;
+    return Travelinfo;
   };
   
