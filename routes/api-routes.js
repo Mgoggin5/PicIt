@@ -17,19 +17,11 @@ module.exports = function(app){
       });
   });
  
-<<<<<<< HEAD
 app.post("/api/travelinfo", function(req, res){
     db.travelinfo.create(req.body).then(function(dbtravelinfo){
         res.json(dbtravelinfo)
     });
 })
-=======
-// app.travelinfo("/api/travelinfo", function(req, res){
-//     db.travelinfo.create(req.body).then(function(dbtravelinfo){
-//         res.json(dbtravelinfo)
-//     });
-// })
->>>>>>> be20633121d678f551cd86eaa8d4c7dd48b6d2ea
 
 
   app.delete("/api/travelinfo/:id", function(req, res) {

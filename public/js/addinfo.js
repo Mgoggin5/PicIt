@@ -1,17 +1,21 @@
 // from unit 15 activity 5 librry
-
+$(function() {
+$("#loggedemail").text(localStorage.getItem("email"));
 // When user clicks add-btn
 $("#submit-btn").on("click", function(event) {
     event.preventDefault();
-  
+    
+
     // Make a newBook object
     var newDestination = {
       destInput: $("#title").val().trim(),
-      author: $("#actiInput").val().trim(),
-      genre: $("#RestInput").val().trim(),
-      pages: $("#AttrInput").val().trim()
+      activities: $("#actiInput").val().trim(),
+      restaurants: $("#RestInput").val().trim(),
+      attractions: $("#AttrInput").val().trim(),
+      email: $("#loggedemail")
     };
-  
+
+
     // Send an AJAX POST-request with jQuery
     $.post("/api/new", newDestination)
       // On success, run the following code
@@ -20,6 +24,8 @@ $("#submit-btn").on("click", function(event) {
         console.log(data);
       });
   
+
+
     // Empty each input box by replacing the value with an empty string
     $("#destInput").val("");
     $("#actiInput").val("");
@@ -27,3 +33,4 @@ $("#submit-btn").on("click", function(event) {
     $("#AttrInput").val("");
   
   });
+})
