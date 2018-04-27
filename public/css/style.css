@@ -1,4 +1,4 @@
-h1.text-center{
+/* h1.text-center{
     color: white;
 }
 h2.text-center{
@@ -6,9 +6,9 @@ h2.text-center{
 }
 h3.text-center{
     color: white;
-}
+} */
 body{
-    background-color: black;
+    background-color: aqua;
 }
 /* VIDEO BACKGROUND CSS */
 .fullscreen-bg {
