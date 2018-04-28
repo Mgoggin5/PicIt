@@ -47,27 +47,32 @@ module.exports = function(app){
   //   });
   // });
 
+  // adding new travel info to the database.
   app.post("/api/new", function(req, res) {
     db.travelinfo.create(req.body).then(function(dbtravelinfo) {
       res.json(dbtravelinfo);
     });
-    console.log("app.post req.body: ", req.body);
+    // console.log("app.post req.body: ", req.body); // working
   });   
+
+  // working   
+  app.get("/api/entry", function(req, res) {
+    db.travelinfo.findAll(req.body).then(function(dbtravelinfo) {
+      res.json(dbtravelinfo);
+  });
+  //console.log (req.body) returns{}; no data.
+  console.log("app.get api/entry: ",req.body);
+});
+
+  //  app.get("/api/entry", function(req, res) {
+  //     db.travelinfo.findAll(req.body).then(function(err, result) {
+  //       if (erro) throw err;
+  //       res.json(dbtravelinfo);
+  //   });
+  //   //console.log (req.body) returns{}; no data.
+  //   console.log("app.get api/entry: ", data);
+  // });
+  
     
-
-// Another way to do app.post to store data into database.
-// app.post("/api/new", function(req, res) {
-//   db.travelinfo.create({
-//     email: req.body.emailadd,
-//     destination: req.body.destInput,
-//     attractions: req.body.attrInput,
-//     activities: req.body.actiInput,
-//     restaurants: req.body.restInput    
-//   }).then(function(dbtravelinfo) {
-//     res.json(dbtravelinfo);
-//   });    
-//   console.log("app.post req.body: ", req.body);
-// });
-
 
 }
