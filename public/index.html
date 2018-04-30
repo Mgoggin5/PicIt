@@ -16,14 +16,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
     <!-- LINK STYLESHEETS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
 <body>
     <div class="fullscreen-bg">
         <video loop muted autoplay class="fullscreen-bg__video">
-            <source src="../assets/videos/Cover.mp4" type="video/mp4">
+            <source src="./assets/videos/Cover.mp4" type="video/mp4">
         </video>
     </div>
     <br>
@@ -40,7 +40,7 @@
         <h3 class="text-center">Instant drawing result!</h3>
         <form id="form1">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Enter Your Email Here">
+                <input type="text" class="form-control" required placeholder="Enter Your Email Here">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit" id="lotto">Let's Go!</button>
                 </span>
@@ -51,14 +51,6 @@
         <!-- INSERT CODE FOR RANDOM NUMBER LOTTERY GENERATOR -->
     </div>
 </body>
-<style>
-    .input-group {
-        width: 100%
-    }
-    button {
-        width: 100%;
-    }
-</style>
 </html>
 <!-- LOTTERY TEST -->
 <script>
@@ -75,11 +67,11 @@
             console.log("Congratulations, you won!");
         }
         else {
-            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 5 seconds click <a href='./landing.html'>here</a></h2>");
+            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 3 seconds click <a href='./landing.html'>here</a></h2>");
             console.log("Sorry, not this time!");
         }
         setTimeout(function () {
             window.location.href = "./landing.html"; //will redirect to your blog page (an ex: blog.html)
-        }, 5000); //will call the function after 5 secs.
+        }, 3000); //will call the function after 5 secs.
     });
 </script>
