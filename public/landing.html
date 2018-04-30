@@ -15,14 +15,24 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	 crossorigin="anonymous">
 	<!-- LINK STYLESHEETS -->
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
 
 <body>
 
-	<h1 class="text-center">Welcome to PicIt!</h1>
-	<h2 class="text center">Where in the world do you want to go today?</h2>
-	<div class="container">
+
+	<div class="fullscreen-bg">
+		<video loop muted autoplay class="fullscreen-bg__video">
+			<source src="./assets/videos/Big-Apple.mp4" type="video/mp4">
+		</video>
+	</div>
+
+
+	<div class="container" id="infobox">
+		<h1 class="text-center">Welcome to PicIt!</h1>
+		<h2 class="text-center">Where in the world do you want to go today?</h2>
 		<!-- <div class="row top-30">
       <div class="col-md-2 col-sm-2">
         <a class="btn btn-default" href="/blog">Go to Blog</a>
@@ -37,17 +47,17 @@
 					<form id="cms">
 						<div class="form-group">
 							<label for="title">Email address:</label>
-							<input placeholder="required" type="text" class="form-control" id="emailadd">
+							<input placeholder="required" type="text" class="form-control" id="emailadd" required>
 							<br />
 							<label for="title">Destination:</label>
-							<input placeholder="" type="text" class="form-control" id="destInput">
+							<input placeholder="" type="text" class="form-control" id="destInput" requried>
 							<br />
 							<label for="body">Activities:</label>
-							<textarea placeholder="" class="form-control" rows="2" id="actiInput"></textarea>
+							<textarea placeholder="" class="form-control" rows="2" id="actiInput" required></textarea>
 							<label for="body">Restaurants:</label>
-							<textarea placeholder="" class="form-control" rows="2" id="restInput"></textarea>
+							<textarea placeholder="" class="form-control" rows="2" id="restInput" required></textarea>
 							<label for="body">Attractions:</label>
-							<textarea placeholder="" class="form-control" rows="2" id="attrInput"></textarea>
+							<textarea placeholder="" class="form-control" rows="2" id="attrInput" required></textarea>
 							<!-- <div class="form-group">
                             <label for="category">Select Email address:</label>
                             <select class="form-control" id="savedemailadd">

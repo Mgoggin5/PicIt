@@ -13,6 +13,8 @@ h3.text-center{
 }
 body{
     background-color: black;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
 }
 /* VIDEO BACKGROUND CSS */
 .fullscreen-bg {
