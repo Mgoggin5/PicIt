@@ -1,57 +1,4 @@
-// When user hits the search-btn
-$("#search-btn").on("click", function(event) {
-  event.preventDefault();
-
-  // Save the book they typed into the book-search input
-  var bookSearched = $("#book-search").val().trim();
-
-  // Make an AJAX get request to our api, including the user's book in the url
-  $.get("/api/" + bookSearched, function(data) {
-
-    console.log(data);
-    // Call our renderBooks function to add our books to the page
-    renderBooks(data);
-
-  });
-
-});
-
-// When user hits the author-search-btn
-$("#author-search-btn").on("click", function() {
-
-  // Save the author they typed into the author-search input
-  var authorSearched = $("#author-search").val().trim();
-
-  // Make an AJAX get request to our api, including the user's author in the url
-  $.get("/api/author/" + authorSearched, function(data) {
-
-    // Log the data to the console
-    console.log(data);
-    // Call our renderBooks function to add our books to the page
-    renderBooks(data);
-
-  });
-
-});
-
-// When user hits the genre-search-btn
-$("#genre-search-btn").on("click", function() {
-
-  // Save the book they typed into the genre-search input
-  var genreSearched = $("#genre-search").val().trim();
-
-  // Make an AJAX get request to our api, including the user's genre in the url
-  $.get("/api/genre/" + genreSearched, function(data) {
-
-    console.log(data);
-    // Call our renderBooks function to add our books to the page
-    renderBooks(data);
-
-  });
-
-});
-
-function renderBooks(data) {
+function renderDestination(data) {
   if (data.length !== 0) {
 
     $("#stats").empty();
@@ -61,44 +8,30 @@ function renderBooks(data) {
 
       var div = $("<div>");
 
-      div.append("<h2>" + data[i].title + "</h2>");
-      div.append("<p>Author: " + data[i].author + "</p>");
-      div.append("<p>Genre: " + data[i].genre + "</p>");
-      div.append("<p>Pages: " + data[i].pages + "</p>");
-      div.append("<button class='delete' data-id='" + data[i].id + "'>DELETE BOOK</button>");
+      div.append("<h2>" + data[i].destination + "</h2>");
+      div.append("<p>Act: " + data[i].actiInput + "</p>");
+      div.append("<p>Rest: " + data[i].restInput + "</p>");
+      div.append("<p>Attr: " + data[i].attrInput + "</p>");
 
       $("#stats").append(div);
 
     }
-
-    $(".delete").click(function() {
-
-      var info = {
-        id: $(this).attr("data-id")
-      };
-
-      $.post("/api/delete", info)
-        // On success, run the following code
-        .then(function(delData) {
-          // Log the data we found
-          console.log(delData);
-          console.log("Deleted Successfully!");
-        });
-
-      $(this).closest("div").remove();
-
-    });
-
-  }
+  }   
 }
 
+$("#search-btn").on("click", function(event) {
+  event.preventDefault();
 
+  // Save the book they typed into the book-search input
+  var destinationSearched = $("#destination-search").val().trim();
 
+  // Make an AJAX get request to our api, including the user's book in the url
+  $.get("/api/" + destinationSearched, function(data) {
 
+    console.log(data);
+    // Call our renderBooks function to add our books to the page
+    renderDestination(data);
 
-var viewDestination = {
-  destination: $("#destInput").val().trim(),
-  attractions: $("#attrInput").val().trim(),
-  activities: $("#actiInput").val().trim(),
-  restaurants: $("#restInput").val().trim()
-};
+  });
+
+});
