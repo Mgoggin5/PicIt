@@ -2,8 +2,25 @@ var db = require("../models")
 
 module.exports = function(app){
 
+// adding new travel info to the database.
+app.post("/api/new", function(req, res) {
+  db.travelinfo.create(req.body).then(function(result) {
+    res.end();
+  });    
+});
+
+// gets all user entries.
+app.get("/api/entry", function(req, res) {
+  db.travelinfo.findAll(req.body).then(function(dbtravelinfo) {
+    res.json(dbtravelinfo);
+});
+ console.log("app.get api/entry: ",req.body);
+});
+
 
   // app.get("/api/travelinfo", function(req, res) {
+  //   var query = {};
+
   //     db.travelinfo.findAll({}).then(function(dbtravelinfo) {
   //     res.json(dbtravelinfo);
   //   });
@@ -17,11 +34,11 @@ module.exports = function(app){
   //     });
   // });
  
-app.post("/api/travelinfo", function(req, res){
-    db.travelinfo.create(req.body).then(function(dbtravelinfo){
-        res.json(dbtravelinfo)
-    });
-})
+// app.post("/api/travelinfo", function(req, res){
+//     db.travelinfo.create(req.body).then(function(dbtravelinfo){
+//         res.json(dbtravelinfo)
+//     });
+// })
 
 
   // app.delete("/api/travelinfo/:id", function(req, res) {
@@ -47,12 +64,13 @@ app.post("/api/travelinfo", function(req, res){
   //   });
   // });
 
-  app.post("/api/new", function(req, res) {
-    db.travelinfo.create(req.body).then(function(dbtravelinfo) {
-      res.json(dbtravelinfo);
-    });
-    console.log("app.post req.body: ", req.body);
-  });   
+  // app.post("/api/new", function(req, res) {
+  //   var data = {};
+  //   db.travelinfo.create(req.body).then(function(dbtravelinfo) {
+  //     res.json(dbtravelinfo);
+  //   });
+  //   console.log("app.post req.body: ", req.body);
+  // });   
     
 
 // Another way to do app.post to store data into database.

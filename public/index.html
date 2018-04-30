@@ -1,5 +1,26 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "wwiinavi@hotmail.com";
+    $from = $_POST['email']; // this is the sender's Email address
+    <!-- $first_name = $_POST['first_name']; -->
+    <!-- $last_name = $_POST['last_name']; -->
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = "Sorry, you didn't win.";
+    <!-- $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message']; -->
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you, we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +37,10 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
 </head>
+
 <body>
-    <div class="fullscreen-bg"> 
-        <!-- <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-            <source src="../assets/dynamic/Cover.mp4" type="video/mp4">
-        </video> -->
+    <div class="fullscreen-bg">
+
     </div>
     <br>
     <br>
@@ -32,24 +52,28 @@
     <h1 class="text-center">PIC It!</h1>
     <div class="container">
         <h2 class="text-center">Offer ends in 5 minutes!</h1>
-        <h2 class="text-center">Enter your email for a chance to win a free trip to Cabo!</h2>
-        <h3 class="text-center">Instant drawing result!</h3>
-        <div id="emailBox" class="input-group">
-            <div class="col-md-8">
-            <input id='email'type="text" class="form-control col-md-8" placeholder="Your Email" aria-describedby="basic-addon2">
-            <a href="/add"><button id="raffle" type="button" class="btn navbar-btn col-md-4 text-center">Sign Me Up</button></a>
-        </div>
-    </div>
+            <h2 class="text-center">Enter your email for a chance to win a free trip to Cabo!</h2>
+            <h3 class="text-center">Instant drawing result!</h3>
+            <div id="emailBox" class="input-group">
+                <div class="col-md-8">
+                    <form action="/landing" method="POST">
+                        <input id='email' name="email" type="email" class="form-control col-md-8" placeholder="Your Email" aria-describedby="basic-addon2"
+                            required>
+                        <a href="/add">
+                            <button id="raffle" type="button" class="btn navbar-btn col-md-4 text-center">Sign Me Up</button>
+                        </a>
+                    </form>
+
+                </div>
+            </div>
     </div>
     <div class="drawing-result">
         <!-- INSERT CODE FOR RANDOM NUMBER LOTTERY GENERATOR -->
     </div>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <!-- <script src="jquery-3.3.1.min.js"></script> -->
     <script src="./js/main.js"></script>
 </body>
@@ -57,10 +81,10 @@
     .input-group {
         width: 100%
     }
+
     button {
         width: 100%;
     }
 </style>
+
 </html>
-
-
