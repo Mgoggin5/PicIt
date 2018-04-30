@@ -3,6 +3,10 @@ $(document).ready(function() {
     var emailInput = $("#email");
 
 
+
+
+
+
 // INSERT LOTTO FUNCTION CODE 
 $(".btn btn-default").on("click", "#random-button", function() {
   var userLottoNum = "";
