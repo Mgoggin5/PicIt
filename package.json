@@ -1,14 +1,17 @@
 {
-  "name": "PicIt",
+  "name": "picit",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
-    "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
-    "sequelize": "^4.37.6"
+    "npm": "^6.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.6",
+    "unsplash-js": "^4.8.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -26,5 +29,4 @@
     "url": "https://github.com/Mgoggin5/PicIt/issues"
   },
   "homepage": "https://github.com/Mgoggin5/PicIt#readme"
-
 }

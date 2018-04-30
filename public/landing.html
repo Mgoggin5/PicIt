@@ -2,93 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="2018 Chris Bacani, Wayne Wright, Anant Patel, Matthew Goggin, Mike Hollenberg" <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
-    <title>PIC It</title>
-    <!-- INSERT BOOTSTRAP CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <!-- LINK STYLESHEETS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <script src="jquery-3.3.1.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="2018 Chris Bacani, Wayne Wright, Anant Patel, Matthew Goggin, Mike Hollenberg">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>PIC It</title>
+	<!-- INSERT BOOTSTRAP CDN -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	 crossorigin="anonymous">
+	<!-- LINK STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-    <!-- VIDEO COVER SECTION -->
 
-    <div class="homepage-hero-module">
-        <div class="video-container">
-            <div class="filter"></div>
-            <video autoplay loop class="fillWidth">
-                <source src="../assets/videos/Big-Apple.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-            </video>
-        </div>
-    </div>
-
-    <h1 class="text-center">Welcome to PicIt!</h1>
-    <h2 class="text-center">Where in the world do you want to go today?</h2>
-
-    <div class="container">
-        <!-- DESTINATIONS -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <!-- ACTIVITIES -->
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi animi nulla voluptate adipisci dolorem
-                            inventore a pariatur id laudantium obcaecati enim omnis neque ut porro delectus ea similique,
-                            fugiat laboriosam.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi animi nulla voluptate adipisci dolorem
-                            inventore a pariatur id laudantium obcaecati enim omnis neque ut porro delectus ea similique,
-                            fugiat laboriosam.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- RESTAURANTS -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit vitae itaque porro earum. Mollitia facere inventore obcaecati, quia cum blanditiis odit sit dolorem, assumenda eius nobis quidem libero, magnam in.</p>
-                </div>
-            </div>
-        </div>
-        <!-- ATTRACTIONS -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, et? Voluptates dolorum dolore excepturi rerum voluptatibus error explicabo ad corporis! Repellat, pariatur ipsa expedita harum deleniti consectetur inventore corporis ea.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-
+	<h1 class="text-center">Welcome to PicIt!</h1>
+	<h2 class="text center">Where in the world do you want to go today?</h2>
+	<div class="container">
+		<!-- <div class="row top-30">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/blog">Go to Blog</a>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/authors">Manage Authors</a>
+      </div>
+    </div> -->
+		<form>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<form id="cms">
+						<div class="form-group">
+							<label for="title">Email address:</label>
+							<input placeholder="required" type="text" class="form-control" id="emailadd">
+							<br />
+							<label for="title">Destination:</label>
+							<input placeholder="" type="text" class="form-control" id="destInput">
+							<br />
+							<label for="body">Activities:</label>
+							<textarea placeholder="" class="form-control" rows="2" id="actiInput"></textarea>
+							<label for="body">Restaurants:</label>
+							<textarea placeholder="" class="form-control" rows="2" id="restInput"></textarea>
+							<label for="body">Attractions:</label>
+							<textarea placeholder="" class="form-control" rows="2" id="attrInput"></textarea>
+							<!-- <div class="form-group">
+                            <label for="category">Select Email address:</label>
+                            <select class="form-control" id="savedemailadd">
+                        </select>
+                        </div> -->
+							<br />
+							<button type="submit" class="btn btn-success submit" id="submit-btn">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</form>
+		<br>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div id="AllEntry">
+					<form>
+						<div class="entry-header">
+							<h3 class="card-title">
+								<strong>Details</strong>
+							</h3>
+						</div>
+						<div class="card-body" id="entry">
+							<!-- content will go in here -->
+						</div>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Custom Script -->
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script>
+	<script src="./js/addinfo.js" type="text/javascript"></script>
 </body>
 
 </html>

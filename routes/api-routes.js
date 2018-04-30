@@ -1,45 +1,36 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
 var db = require("../models")
 
 module.exports = function(app){
 
+  // adding new travel info to the database.
+  app.post("/api/new", function(req, res) {
+    db.travelinfo.create(req.body).then(function(result) {
+      // res.end();
+      res.json(result);
+    });    
+  });
 
-  app.get("/api/travelinfo", function(req, res) {
-      db.travelinfo.findAll({}).then(function(dbtravelinfo) {
+  // gets all user entries.
+  app.get("/api/entry", function(req, res) {
+    db.travelinfo.findAll(req.body).then(function(dbtravelinfo) {
       res.json(dbtravelinfo);
-    });
   });
-
-  app.get("/api/travelinfo/:id", function(req, res){
-      db.travelinfo.findOne({
-          where: {id: req.params.id}
-      }).then(function(dbtravelinfo){
-          res.json(dbtravelinfo)
-      });
-  });
- 
-// app.travelinfo("/api/travelinfo", function(req, res){
-//     db.travelinfo.create(req.body).then(function(dbtravelinfo){
-//         res.json(dbtravelinfo)
-//     });
-// })
-
-
-  app.delete("/api/travelinfo/:id", function(req, res) {
+   console.log("app.get api/entry: ",req.body);
+});
+  
+  // delte for deleting record.
+  app.delete("/api/delete/:id", function(req, res) {
     db.travelinfo.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbtravelinfo) {
-      res.json(dbtravelinfo);
+    }).then(function(result) {
+      res.json(result);
     });
   });
 
-  // PUT route for updating travelinfos
-  app.put("/api/travelinfo", function(req, res) {
+  //PUT route for updating travelinfos
+  app.put("/api/update", function(req, res) {
     db.travelinfo.update(
       req.body,
       {
@@ -51,18 +42,4 @@ module.exports = function(app){
     });
   });
 
-
-
-// Add sequelize code to create a destination.
-app.post("/api/new", function(req, res) {
-  db.travelinfos.create({
-    //instead of req.bdy
-    title: req.body.title,
-    author: req.body.author,
-    genre: req.body.genre,
-    pages: req.body.pages
-  }).then(function(dbtravelinfos) {
-    res.json(dbtravelinfos);
-  });    
-});
-}
+}// module export function app ends here.

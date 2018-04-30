@@ -1,29 +1,99 @@
-// from unit 15 activity 5 librry
+// var formFields = {
+//   email: $("#emailadd"),
+//   destination: $("#destInput"),
+//   attractions:  $("#attrInput"),
+//   activities: $("#actiInput"),
+//   restaurants: $("#restInput"),
+// };
 
-// When user clicks add-btn
-$("#submit-btn").on("click", function(event) {
-    event.preventDefault();
-  
-    // Make a newBook object
-    var newDestination = {
-      destInput: $("#title").val().trim(),
-      author: $("#actiInput").val().trim(),
-      genre: $("#RestInput").val().trim(),
-      pages: $("#AttrInput").val().trim()
-    };
-  
-    // Send an AJAX POST-request with jQuery
-    $.post("/api/new", newDestination)
-      // On success, run the following code
-      .then(function(data) {
-        // Log the data we found
-        console.log(data);
+// formFields.destination.val(test.destination);
+
+//working code for last record.
+$("#submit-btn").on("click", function (event) {
+  event.preventDefault();
+
+  // Make a destination object
+
+  var newDestination = {
+    email: $("#emailadd").val().trim(),
+    destination: $("#destInput").val().trim(),
+    attractions: $("#attrInput").val().trim(),
+    activities: $("#actiInput").val().trim(),
+    restaurants: $("#restInput").val().trim()
+  };
+
+  $.post("/api/new", newDestination)
+    .then(function (results) {
+      console.log("RESULTS: ", results);
+      $.ajax({
+        method: "GET",
+        url: "/api/entry"
+      }).then(function (data) {
+        // console.log("*********************");
+        // console.log("ajax request: ", data);
+        showtravelinfo(data);
       });
-  
-    // Empty each input box by replacing the value with an empty string
-    $("#destInput").val("");
-    $("#actiInput").val("");
-    $("#RestInput").val("");
-    $("#AttrInput").val("");
-  
+
+      function showtravelinfo(dbtravelinfo) {
+        $("#entry").empty();
+        var argv;
+        for (let i = 0; i < dbtravelinfo.length; i++) {
+          arvg = dbtravelinfo[dbtravelinfo.length - 1];
+        }
+        // console.log("showtraveelinfo() dbtravelinfo.length: ", arvg);              
+        // return argv;
+        addOneEntry(arvg);
+      } //showtravelinfo() ends here.        
+
+      function addOneEntry(test) {
+        console.log("addOneEntry () argv: ", test);
+        var newEntryElement = $("<div>");
+        newEntryElement.addClass("entryclass");
+        // newEntryElement.append(`<p>id: ${userEntry.id}</p>`);
+        newEntryElement.append(`<p>Email: ${test.email}</p>`);
+        newEntryElement.append(`<p>Destination: ${test.destination}</p>`);
+        newEntryElement.append(`<p>Attractions: ${test.attractions}</p>`);
+        newEntryElement.append(`<p>Activities: ${test.activities}</p>`);
+        newEntryElement.append(`<p>Restaurants: ${test.restaurants}</p>`);
+        newEntryElement.append(`<button type="submit" data-id='${test.id}' class="btn btn-primary deleteEntry">Delete</button>`);
+        newEntryElement.append(`<button type="submit" data-id='${test.id}' class="btn btn-primary updateEntry">Update</button>`);
+        
+
+        $("#entry").append(newEntryElement);
+        // console.log("add one entry: ",newEntryElement)
+      }
+
+    }); //$.post ends here.   
+
+  // Empty each input box by replacing the value with an empty string
+  $("#emailadd").val("");
+  $("#destInput").val("");
+  $("#attrInput").val("");
+  $("#actiInput").val("");
+  $("#restInput").val("");
+
+}); //submit button ends here.
+
+
+// delete an entry.
+$("#entry").on("click", ".deleteEntry", function (event) {
+  event.preventDefault();
+
+  var id = $(this).data("id");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/delete/" + id
+  }).then(function (data) {
+    console.log("delete data: ", data);
   });
+  $("#entry").empty();
+}); //deleteEntry button ends here
+
+
+// update entry.
+$("#updateEntry").on("click", function (event) {
+  event.preventDefault();
+
+
+
+}); //updateEntry button ends here
