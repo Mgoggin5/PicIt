@@ -16,12 +16,13 @@
         crossorigin="anonymous"></script>
     <!-- LINK STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="fullscreen-bg">
-        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <video loop muted autoplay class="fullscreen-bg__video">
             <source src="../assets/videos/Cover.mp4" type="video/mp4">
         </video>
     </div>
@@ -34,19 +35,19 @@
     <br>
     <h1 class="text-center">PIC It!</h1>
     <div class="container">
-        <h2 class="text-center">Offer ends in 5 minutes!</h1>
-            <h2 class="text-center">Enter your email for a chance to win a free trip to Cabo!</h2>
+        <h3 class="text-center">Offer ends in 15 minutes!</h3>
+            <h2 class="text-center">Enter your email for a chance to win an all expenses paid, all-inclusive trip to Cabo for four!</h2>
             <h3 class="text-center">Instant drawing result!</h3>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Enter Your Email Here">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Let's Go!</button>
+                    <button class="btn btn-default" type="button" id="lotto">Let's Go!</button>
                 </span>
             </div>
     </div>
     <div class="drawing-result">
         <!-- INSERT CODE FOR RANDOM NUMBER LOTTERY GENERATOR -->
-        <link rel=
+
     </div>
 </body>
 <style>
@@ -60,3 +61,36 @@
 </style>
 
 </html>
+
+
+<!-- LOTTERY TEST -->
+<script>
+    $("#lotto").on("click", function () {
+        console.log("lotto btn clicked");
+        var userLottoNum = "";
+        var systemLottoNum = "69203475";
+
+        var random = Math.floor(Math.random() * 9000000) + 1;
+        userLottoNum = random + userLottoNum;
+        
+
+        console.log(userLottoNum);
+
+        if (userLottoNum === systemLottoNum) {
+            $(".drawing-result").append("<h1 class='text-center'>Congratulations, you won! More information will be sent to you via email.</h1>");
+            console.log("Congratulations, you won!");
+        }
+
+        else {
+            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 5 seconds click <a href='./landing.html'>here</a></h2>");
+            console.log("Sorry, not this time!");
+        }
+
+   setTimeout(function () {
+       window.location.href = "./landing.html"; //will redirect to your blog page (an ex: blog.html)
+    }, 5000); //will call the function after 5 secs.
+
+
+    });
+
+</script>
