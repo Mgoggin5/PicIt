@@ -17,7 +17,7 @@ module.exports = function (app) {
     });
   });
 
-  app.travelinfo("/api/travelinfos", function (req, res) {
+  app.post("/api/travelinfos", function (req, res) {
     db.travelinfo.create(req.body).then(function (dbtravelinf) {
       res.json(dbtravelinfo)
     });
