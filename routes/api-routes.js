@@ -1,10 +1,9 @@
 var db = require("../models")
 
-<<<<<<< HEAD
 module.exports = function (app) {
 
 
-<<<<<<< HEAD
+
   // app.get("/api/travelinfo", function(req, res) {
   //     db.travelinfo.findAll({}).then(function(dbtravelinfo) {
   //     res.json(dbtravelinfo);
@@ -73,21 +72,6 @@ module.exports = function (app) {
 
 
 }
-=======
-  app.get("/api/travelinfos", function (req, res) {
-    db.travelinfo.findAll({}).then(function (dbtravelinfo) {
-      res.json(dbtravelinfo);
-    });
-=======
-module.exports = function(app){
-
-  // adding new travel info to the database.
-  app.post("/api/new", function(req, res) {
-    db.travelinfo.create(req.body).then(function(result) {
-      // res.end();
-      res.json(result);
-    });    
->>>>>>> bf469a75e67281d92ccb519afde44cd3634e052e
   });
 
   // gets all user entries.
