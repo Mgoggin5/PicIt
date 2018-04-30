@@ -1,43 +1,37 @@
+function renderDestination(data) {
+  if (data.length !== 0) {
 
-  
-  function renderDestination(data) {
-    if (data.length !== 0) {
-  
-      $("#stats").empty();
-      $("#stats").show();
-  
-      for (var i = 0; i < data.length; i++) {
-  
-        var div = $("<div>");
-  
-        div.append("<h2>" + data[i].title + "</h2>");
-        div.append("<p>actiInput: " + data[i].actiInput + "</p>");
-        div.append("<p>RestInput: " + data[i].RestInput + "</p>");
-        div.append("<p>AttrInput: " + data[i].AttrInput + "</p>");
-        div.append("<button class='delete' data-id='" + data[i].id + "'>DELETE DESTINATION</button>");
-  
-        $("#stats").append(div);
-  
-      }
-  
-      $(".delete").click(function() {
-  
-        var info = {
-          id: $(this).attr("data-id")
-        };
-  
-        $.post("/api/delete", info)
-          // On success, run the following code
-          .then(function(delData) {
-            // Log the data we found
-            console.log(delData);
-            console.log("Deleted Successfully!");
-          });
-  
-        $(this).closest("div").remove();
-  
-      });
-  
+    $("#stats").empty();
+    $("#stats").show();
+
+    for (var i = 0; i < data.length; i++) {
+
+      var div = $("<div>");
+
+      div.append("<h2>" + data[i].destination + "</h2>");
+      div.append("<p>Act: " + data[i].actiInput + "</p>");
+      div.append("<p>Rest: " + data[i].restInput + "</p>");
+      div.append("<p>Attr: " + data[i].attrInput + "</p>");
+
+      $("#stats").append(div);
+
     }
-  }
-  
+  }   
+}
+
+$("#search-btn").on("click", function(event) {
+  event.preventDefault();
+
+  // Save the book they typed into the book-search input
+  var destinationSearched = $("#destination-search").val().trim();
+
+  // Make an AJAX get request to our api, including the user's book in the url
+  $.get("/api/" + destinationSearched, function(data) {
+
+    console.log(data);
+    // Call our renderBooks function to add our books to the page
+    renderDestination(data);
+
+  });
+
+});
