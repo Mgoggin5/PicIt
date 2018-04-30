@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-// getPhotos();
+
   
   function renderDestination(data) {
     if (data.length !== 0) {

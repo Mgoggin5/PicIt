@@ -9,7 +9,7 @@ $("#submit-btn").on("click", function(event) {
 
   // Make a destination object
   var newDestination = { 
-    // email: $("#emailadd").val().trim(),
+    email: localStorage.getItem("email"),
     destination: $("#destInput").val().trim(),
     attractions: $("#attrInput").val().trim(),
     activities: $("#actiInput").val().trim(),
