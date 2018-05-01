@@ -4,7 +4,13 @@
     "password": "root",
     "database": "picit_db",
     "host": "127.0.0.1",
+<<<<<<< HEAD
     "dialect": "mysql"
+=======
+    "dialect": "mysql",
+    "port": 8889
+    
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
   },
   "test": {
     "username": "root",
