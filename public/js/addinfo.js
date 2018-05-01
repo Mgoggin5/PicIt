@@ -1,27 +1,16 @@
-// $(document).ready(function() {
+$(document).ready(function () {
 $("#loggedemail").html(localStorage.getItem("email"));
-
-// console.log("email")
-
-// var formFields = {
-//   email: $("#emailadd"),
-//   destination: $("#destInput"),
-//   attractions: $("#attrInput"),
-//   activities: $("#actiInput"),
-//   restaurants: $("#restInput"),
-// };
-
-// formFields.destination.val(test.destination);
-
-//working code for last record.
+  $("#secondpage").hide();
+  $("#thirdpage").hide();
+  
 $("#submit-btn").on("click", function (event) {
   event.preventDefault();
+  
+  $("#secondpage").show();
 
-  // Make a destination object
-
-  var newDestination = {
-    // email: localStorage.getItem("email"),
-    email: $("#emailadd").val().trim(),
+    var newDestination = {
+    email: localStorage.getItem("email"),
+    // email: $("#emailadd").val().trim(),
     destination: $("#destInput").val().trim(),
     attractions: $("#attrInput").val().trim(),
     activities: $("#actiInput").val().trim(),
@@ -30,13 +19,13 @@ $("#submit-btn").on("click", function (event) {
 
   $.post("/api/new", newDestination)
     .then(function (results) {
-      console.log("RESULTS: ", results);
+      // console.log("First submit RESULTS: ", results);
       $.ajax({
         method: "GET",
         url: "/api/entry"
       }).then(function (data) {
-        console.log("*********************");
-        console.log("ajax request: ", data);
+        // console.log("*********************");
+        // console.log("First ajax request: ", data);
         showtravelinfo(data);
       });
 
@@ -47,15 +36,13 @@ $("#submit-btn").on("click", function (event) {
           arvg = dbtravelinfo[dbtravelinfo.length - 1];
         }
         // console.log("showtraveelinfo() dbtravelinfo.length: ", arvg);              
-        // return argv;
+        
         addOneEntry(arvg);
-      } //showtravelinfo() ends here.        
+      } //showtravelinfo() ends here.              
 
       function addOneEntry(data) {
-        console.log("addOneEntry () argv: ", data);
         var newEntryElement = $("<div>");
         newEntryElement.addClass("entryclass");
-        // newEntryElement.append(`<p>id: ${userEntry.id}</p>`);
         newEntryElement.append(`<p>Email: ${data.email}</p>`);
         newEntryElement.append(`<p>Destination: ${data.destination}</p>`);
         newEntryElement.append(`<p>Attractions: ${data.attractions}</p>`);
@@ -63,31 +50,13 @@ $("#submit-btn").on("click", function (event) {
         newEntryElement.append(`<p>Restaurants: ${data.restaurants}</p>`);
         newEntryElement.append(`<button type="submit" data-id='${data.id}' class="btn btn-primary deleteEntry">Delete</button>`);
         newEntryElement.append(`<button type="submit" data-id='${data.id}' class="btn btn-primary updateEntry">Update</button>`);
-        // var updateBtn = $(`<button type="submit" data-id='${data.id}' class="btn btn-primary updateEntry">Update</button>`);
-        // newEntryElement.append(updateBtn);
-
-        // updateBtn.on('click', function (e) {
-        //   e.preventDefault();
-        //     //get data and set the value of the form fields to the the data we reiceve
-        //     // var emailField = $("#email-update");
-        //     // emailField.val(data.email);
-
-        //     $("#email-update").val(data.email);
-        //     $("#dest-update").val(data.destination);
-        //     $("#act-update").val(data.attractions);
-        //     $("#rest-update").val(data.activities);
-        //     $("#attr-update").val(data.restaurants);
-
-        //   // $("#update").empty();
-        // })
-
         $("#entry").append(newEntryElement);
         // console.log("add one entry: ",newEntryElement)
       }
 
     }); //$.post ends here.   
 
-  // Empty each input box by replacing the value with an empty string
+  
   $("#emailadd").val("");
   $("#destInput").val("");
   $("#attrInput").val("");
@@ -101,13 +70,16 @@ $("#submit-btn").on("click", function (event) {
 $("#entry").on("click", ".deleteEntry", function (event) {
   event.preventDefault();
 
+  $("#secondpage").hide();
+
   var id = $(this).data("id");
+  // console.log("delete entry id: ", id);
+
   $.ajax({
     method: "DELETE",
     url: "/api/delete/" + id
   }).then(function (data) {
-    console.log("delete data: ", data);
-
+    // console.log("delete data: ", data);
   });
   $("#entry").empty();
 }); //deleteEntry button ends here
@@ -116,63 +88,60 @@ $("#entry").on("click", ".deleteEntry", function (event) {
 //update an entry.
 $("#entry").on("click", ".updateEntry", function (event) {
   event.preventDefault();
+
+  $("#firstpage").hide();
+  $("#secondpage").hide();
+  $("#thirdpage").show();
+
   var id = $(this).data("id");
+  console.log("update entry id: ", id);
+
   $.get("/api/entry/" + id).then(function (data) {
-    $("#email-update").val(data.email);
+    $("#email-update").val(localStorage.getItem("email"),);
     $("#dest-update").val(data.destination);
     $("#act-update").val(data.attractions);
     $("#rest-update").val(data.activities);
     $("#attr-update").val(data.restaurants);
+    $("#update-changes").data("id", data.id);
   })
-
-
-
-  //   // var id = $(this).data("id");
-  //   // $.ajax({
-  //   //   method: "update",
-  //   //   url: "/api/update/" + id
-  //   // }).then(function (data) {
-  //   //   console.log("delete data: ", data);  
-
-  //   // });
-
-  //   // $("#update").empty();
 }); //deleteEntry button ends here
 
 
-// $("#submit-btn").on("click", function (event) {
-//   event.preventDefault();
+$("#update-changes").on("click", function (event) {
+  event.preventDefault();
 
-//   // Make a destination object
+  $("#firstpage").hide();
+  $("#secondpage").hide();
 
-//   var updatedinfo = {
-//     email: $("#email-update").val().trim(),
-//     destination: $("#dest-update").val().trim(),
-//     attractions: $("#act-update").val().trim(),
-//     activities: $("#rest-update").val().trim(),
-//     restaurants: $("#attr-update").val().trim()
-//   };
+  var id = $(this).data("id");
+  console.log("update-changes id: ", id);
+   
+    var updatedinfo = {
+    // email: $("#email-update").val().trim(),
+    email: localStorage.getItem("email"),
+    destination: $("#dest-update").val().trim(),
+    attractions: $("#act-update").val().trim(),
+    activities: $("#rest-update").val().trim(),
+    restaurants: $("#attr-update").val().trim(),
+    id: id
+  };//var updatedinfo ends here
+  
+  $.ajax({
+    method: "PUT",
+    url: "/api/update",
+    data: updatedinfo
+  }).then(function (data) {
+    console.log("--------------------------------------");
+    console.log("AFTER UPDAING : ", data);        
+  });
 
-//   $.post("/api/new", updatedinfo)
-//     .then(function (results) {
-//       console.log("RESULTS: ", results);
-//       $.ajax({
-//         method: "GET",
-//         url: "/api/entry"
-//       }).then(function (data) {
-       
-        
-//       });
+  //Empty each input box by replacing the value with an empty string
+  $("#email-update").val("");
+  $("#dest-update").val("");
+  $("#act-update").val("");
+  $("#rest-update").val("");
+  $("#attr-update").val("");
 
-     
-//     }); //$.post ends here.   
+}); //submit button ends here.
 
-//   // Empty each input box by replacing the value with an empty string
-//   $("#emailadd").val("");
-//   $("#destInput").val("");
-//   $("#attrInput").val("");
-//   $("#actiInput").val("");
-//   $("#restInput").val("");
-
-// }); //submit button ends here.
-
+});//document ready function ends here.
