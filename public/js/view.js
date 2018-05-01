@@ -22,11 +22,11 @@ function renderDestination(data) {
 $("#search-btn").on("click", function(event) {
   event.preventDefault();
 
-  // Save the book they typed into the book-search input
+  // Save the destination they typed into the destination-search input
   var destinationSearched = $("#destination-search").val().trim();
 
-  // Make an AJAX get request to our api, including the user's book in the url
-  $.get("/api/entry" + destinationSearched, function(data) {
+  // Make an AJAX get request to our api, including the user's destination data in the url
+  $.get("/api/entry/:id" + destinationSearched, function(data) {
 
     console.log(data);
     // Call our renderBooks function to add our books to the page

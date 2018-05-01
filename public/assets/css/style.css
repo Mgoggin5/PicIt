@@ -45,19 +45,23 @@ body{
   transform: translate(-50%,-50%);
 }
 
-
+/* VIEW PAGE - COVER VIDEO */
 .homepage-hero-module {
     border-right: none;
     border-left: none;
     position: relative;
+    z-index: 0;
+    height: 450px;
 }
 .no-video .video-container video,
 .touch .video-container video {
     display: none;
+    z-index: 0;
 }
 .no-video .video-container .poster,
 .touch .video-container .poster {
     display: block !important;
+    z-index: 0;
 }
 .video-container {
     position: relative;
@@ -67,11 +71,13 @@ body{
     width: 100%;
     overflow: hidden;
     background: #000;
+    z-index: 0;
 }
 .video-container .poster img {
     width: 100%;
     bottom: 0;
     position: absolute;
+    z-index: 0;
 }
 .video-container .filter {
     z-index: 100;
@@ -86,8 +92,27 @@ body{
 }
 .video-container video.fillWidth {
     width: 100%;
+    z-index: -1;
 }
 
 .panel panel-default{
     opacity: 0.6;
+}
+
+.wrapper{
+    text-align: center;
+    z-index: 1;
+}
+
+.card-title{
+    color: black;
+}
+
+#view-dest-body{
+   background-image: url("../images/maxresdefault.jpg");
+   background-attachment: fixed;
+}
+
+.navbar-brand logo{
+    color: white; 
 }
