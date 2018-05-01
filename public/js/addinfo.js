@@ -1,5 +1,9 @@
 $(document).ready(function () {
+<<<<<<< HEAD
   // $("#loggedemail").html(localStorage.getItem("email"));
+=======
+  $("#loggedemail").html(localStorage.getItem("email"));
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
     $("#secondpage").hide();
     $("#thirdpage").hide();
     
@@ -9,8 +13,13 @@ $(document).ready(function () {
     $("#secondpage").show();
   
       var newDestination = {
+<<<<<<< HEAD
       // email: localStorage.getItem("email"),
       email: $("#emailadd").val().trim(),
+=======
+      email: localStorage.getItem("email"),
+      // email: $("#emailadd").val().trim(),
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
       destination: $("#destInput").val().trim(),
       attractions: $("#attrInput").val().trim(),
       activities: $("#actiInput").val().trim(),
@@ -43,7 +52,11 @@ $(document).ready(function () {
         function addOneEntry(data) {
           var newEntryElement = $("<div>");
           newEntryElement.addClass("entryclass");
+<<<<<<< HEAD
           newEntryElement.append(`<p>Email: ${data.email}</p>`);
+=======
+          newEntryElement.append(`<p><b>Email: ${data.email}</p>`);
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
           newEntryElement.append(`<p>Destination: ${data.destination}</p>`);
           newEntryElement.append(`<p>Attractions: ${data.attractions}</p>`);
           newEntryElement.append(`<p>Activities: ${data.activities}</p>`);
@@ -97,7 +110,11 @@ $(document).ready(function () {
     console.log("update entry id: ", id);
   
     $.get("/api/entry/" + id).then(function (data) {
+<<<<<<< HEAD
       $("#email-update").val(data.email);
+=======
+      $("#email-update").val(localStorage.getItem("email"),);
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
       $("#dest-update").val(data.destination);
       $("#act-update").val(data.attractions);
       $("#rest-update").val(data.activities);
@@ -108,7 +125,12 @@ $(document).ready(function () {
   
   
   $("#update-changes").on("click", function (event) {
+<<<<<<< HEAD
     event.preventDefault();
+=======
+  
+    // event.preventDefault();
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
   
     $("#firstpage").hide();
     $("#secondpage").hide();
@@ -117,7 +139,12 @@ $(document).ready(function () {
     console.log("update-changes id: ", id);
      
       var updatedinfo = {
+<<<<<<< HEAD
       email: $("#email-update").val().trim(),
+=======
+      // email: $("#email-update").val().trim(),
+      email: localStorage.getItem("email"),
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
       destination: $("#dest-update").val().trim(),
       attractions: $("#act-update").val().trim(),
       activities: $("#rest-update").val().trim(),
@@ -130,6 +157,7 @@ $(document).ready(function () {
       url: "/api/update",
       data: updatedinfo
     }).then(function (data) {
+<<<<<<< HEAD
       console.log("--------------------------------------");
       console.log("AFTER UPDAING : ", data);        
     });
@@ -141,6 +169,12 @@ $(document).ready(function () {
       
     //    }); //$.post ends here.   
   
+=======
+      // console.log("--------------------------------------");
+      // console.log("AFTER UPDAING : ", data);        
+    });
+  
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
     //Empty each input box by replacing the value with an empty string
     $("#email-update").val("");
     $("#dest-update").val("");
@@ -148,10 +182,22 @@ $(document).ready(function () {
     $("#rest-update").val("");
     $("#attr-update").val("");
   
+<<<<<<< HEAD
+=======
+    window.alert("Successfully updated changes!!!");
+  
+    setTimeout(function () {
+      window.location.href = "./view.html";
+    }, 3000);
+  
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
   }); //submit button ends here.
   
   });//document ready function ends here.
   
+<<<<<<< HEAD
   
 
   
+=======
+>>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3

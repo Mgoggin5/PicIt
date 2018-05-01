@@ -1,16 +1,16 @@
-//from author.js activity 13
-$(document).ready(function() {
-    var emailInput = $("#email");
-
-
-
-
-
+$(document).ready(function () {
+$(function(){
+    $("#lotto").on("click", function(){
+        var email = $("#email").val().trim();
+        localStorage.setItem("email, email")
+    })
+});
 
 // INSERT LOTTO FUNCTION CODE 
-$(".btn btn-default").on("click", "#random-button", function() {
+$("#lotto").on("click", function() {
   var userLottoNum = "";
   var systemLottoNum = "6";
+
 
   for (var i = 0; i < 9; i++) {
       var random = Math.floor(Math.random() * 10) + 1;
@@ -20,7 +20,7 @@ $(".btn btn-default").on("click", "#random-button", function() {
   console.log(userLottoNum);
 
   if(userLottoNum===systemLottoNum){
-      $(".drawing-result").append(<h1>Congratulation, you won bruv</h1>)
+      $(".drawing-result").append("<h1>Congratulation, you won bruv</h1>")
       
   }
 
