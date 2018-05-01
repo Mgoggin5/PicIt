@@ -12,32 +12,69 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="view-dest-body">
 
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container">
+      <a class="navbar-brand logo" href="#">PIC It</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" href="./landing.html">Search for Destinations</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="text">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="text-center">PIC It</h2>
+        <p class="text-center">A Social-Based Travel Community</p>
+        <div class="wrapper">
+          <button href="http://www.facebook.com" class="btn btn-outline-light btn-lg text-center" type="button">Search Destination</button>
+          <button href="/" class="btn btn-outline-light btn-lg text-center" type="button">View All Destinations</button>
+          <br>
+        </div>
+      </div>
+
+      <div class="filter"></div>
+      <video autoplay loop class="fillWidth">
+        <source src="./assets/videos/To-The-Left.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+    </div>
+  </div>
+  <br>
   <div class="container">
 
-    <div class="jumbotron">
-      <h1>PicIt</h1>
-      <h3>Destinations</h3>
-      <hr>
-      <a href="/" class="btn btn-danger btn-lg">
-        <span class="fa fa-eye"></span> Search Destination</a>
 
-      <a href="/all" class="btn btn-danger btn-lg">
-        <span class="fa fa-th-list"></span> All Destinations</a>
-    </div>
+
     <div class="row">
 
       <div class="col-lg-12">
 
-     
+
 
         <div class="card mb-4">
           <div class="card-header">
-            <h3 class="card-title">
+            <h3 class="card-title" id="dest-search">
               <strong>Destination Search</strong>
             </h3>
           </div>
@@ -51,11 +88,11 @@
           </div>
         </div>
 
-     
+
 
         <div class="card mb-4">
           <div class="card-header">
-            <h3 class="card-title">
+            <h3 class="card-title" id="dest-view">
               <strong>Destination Search Results</strong>
             </h3>
           </div>
@@ -72,7 +109,7 @@
                   <span id="restInput"></span>
                 </h3>
                 <strong> Attractions: </strong>
-                 <span id="attrInput"></span> 
+                <span id="attrInput"></span>
               </div>
             </div>
           </div>

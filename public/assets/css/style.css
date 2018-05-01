@@ -45,7 +45,61 @@ body{
   transform: translate(-50%,-50%);
 }
 
+/* VIEW PAGE - COVER VIDEO */
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+    z-index: -1;
+    height: 500px;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+    z-index: -1;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+    z-index: -1;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    z-index: -1;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+    z-index: -1;
+}
 
+.panel panel-default{
+    opacity: 0.6;
+}
+
+/* COVER FOR VIEW PAGE */
 .homepage-hero-module {
     border-right: none;
     border-left: none;
@@ -88,6 +142,24 @@ body{
     width: 100%;
 }
 
-.panel panel-default{
-    opacity: 0.6;
+.btn btn-outline-light btn-lg text-center{
+    background: rgba(0, 0, 0, 0.389)
 }
+
+.wrapper{
+    text-align: center;
+}
+
+.card-title{
+    color: black;
+}
+
+#view-dest-body{
+   background-image: url("../images/maxresdefault.jpg");
+   background-attachment: fixed;
+}
+
+.navbar-brand logo{
+    color: white; 
+}
+
