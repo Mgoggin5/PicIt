@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // $("#loggedemail").html(localStorage.getItem("email"));
+  $("#loggedemail").html(localStorage.getItem("email"));
     $("#secondpage").hide();
     $("#thirdpage").hide();
     
@@ -9,8 +9,8 @@ $(document).ready(function () {
     $("#secondpage").show();
   
       var newDestination = {
-      // email: localStorage.getItem("email"),
-      email: $("#emailadd").val().trim(),
+      email: localStorage.getItem("email"),
+      // email: $("#emailadd").val().trim(),
       destination: $("#destInput").val().trim(),
       attractions: $("#attrInput").val().trim(),
       activities: $("#actiInput").val().trim(),
@@ -43,7 +43,7 @@ $(document).ready(function () {
         function addOneEntry(data) {
           var newEntryElement = $("<div>");
           newEntryElement.addClass("entryclass");
-          newEntryElement.append(`<p>Email: ${data.email}</p>`);
+          newEntryElement.append(`<p><b>Email: ${data.email}</p>`);
           newEntryElement.append(`<p>Destination: ${data.destination}</p>`);
           newEntryElement.append(`<p>Attractions: ${data.attractions}</p>`);
           newEntryElement.append(`<p>Activities: ${data.activities}</p>`);
@@ -97,7 +97,7 @@ $(document).ready(function () {
     console.log("update entry id: ", id);
   
     $.get("/api/entry/" + id).then(function (data) {
-      $("#email-update").val(data.email);
+      $("#email-update").val(localStorage.getItem("email"),);
       $("#dest-update").val(data.destination);
       $("#act-update").val(data.attractions);
       $("#rest-update").val(data.activities);
@@ -108,7 +108,8 @@ $(document).ready(function () {
   
   
   $("#update-changes").on("click", function (event) {
-    event.preventDefault();
+  
+    // event.preventDefault();
   
     $("#firstpage").hide();
     $("#secondpage").hide();
@@ -117,7 +118,8 @@ $(document).ready(function () {
     console.log("update-changes id: ", id);
      
       var updatedinfo = {
-      email: $("#email-update").val().trim(),
+      // email: $("#email-update").val().trim(),
+      email: localStorage.getItem("email"),
       destination: $("#dest-update").val().trim(),
       attractions: $("#act-update").val().trim(),
       activities: $("#rest-update").val().trim(),
@@ -130,16 +132,9 @@ $(document).ready(function () {
       url: "/api/update",
       data: updatedinfo
     }).then(function (data) {
-      console.log("--------------------------------------");
-      console.log("AFTER UPDAING : ", data);        
+      // console.log("--------------------------------------");
+      // console.log("AFTER UPDAING : ", data);        
     });
-  
-    // $.post("/api/new", updatedinfo)
-    //   .then(function (results) {
-    //     console.log("updated RESULTS: ", results);
-        
-      
-    //    }); //$.post ends here.   
   
     //Empty each input box by replacing the value with an empty string
     $("#email-update").val("");
@@ -148,10 +143,13 @@ $(document).ready(function () {
     $("#rest-update").val("");
     $("#attr-update").val("");
   
+    window.alert("Successfully updated changes!!!");
+  
+    setTimeout(function () {
+      window.location.href = "./view.html";
+    }, 3000);
+  
   }); //submit button ends here.
   
   });//document ready function ends here.
-  
-  
-
   

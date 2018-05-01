@@ -30,6 +30,18 @@ module.exports = function (app) {
     console.log("app.get api/entry: ", req.body);
   });
 
+  app.get("/api/entry/data/:destination", function (req, res) {
+    db.travelinfo.findAll({
+      where:{
+        destination: req.params.destination
+      }
+    }).then(function (dbtravelinfo) {
+      console.log(dbtravelinfo)
+      res.json(dbtravelinfo);
+    });
+    // console.log("app.get api/entry: ", req.body);
+  });
+
   // delte for deleting record.
   app.delete("/api/delete/:id", function (req, res) {
     db.travelinfo.destroy({
@@ -54,3 +66,4 @@ module.exports = function (app) {
   });
 
 } // module export function app ends here.
+
