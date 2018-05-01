@@ -43,7 +43,7 @@ $(document).ready(function () {
         function addOneEntry(data) {
           var newEntryElement = $("<div>");
           newEntryElement.addClass("entryclass");
-          newEntryElement.append(`<p>Email: ${data.email}</p>`);
+          newEntryElement.append(`<p><b>Email: ${data.email}</p>`);
           newEntryElement.append(`<p>Destination: ${data.destination}</p>`);
           newEntryElement.append(`<p>Attractions: ${data.attractions}</p>`);
           newEntryElement.append(`<p>Activities: ${data.activities}</p>`);
@@ -108,7 +108,8 @@ $(document).ready(function () {
   
   
   $("#update-changes").on("click", function (event) {
-    event.preventDefault();
+  
+    // event.preventDefault();
   
     $("#firstpage").hide();
     $("#secondpage").hide();
@@ -131,8 +132,8 @@ $(document).ready(function () {
       url: "/api/update",
       data: updatedinfo
     }).then(function (data) {
-      console.log("--------------------------------------");
-      console.log("AFTER UPDAING : ", data);        
+      // console.log("--------------------------------------");
+      // console.log("AFTER UPDAING : ", data);        
     });
   
     //Empty each input box by replacing the value with an empty string
@@ -142,9 +143,13 @@ $(document).ready(function () {
     $("#rest-update").val("");
     $("#attr-update").val("");
   
+    window.alert("Successfully updated changes!!!");
+  
+    setTimeout(function () {
+      window.location.href = "./view.html";
+    }, 3000);
+  
   }); //submit button ends here.
   
   });//document ready function ends here.
-  
-  
   

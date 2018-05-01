@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +9,15 @@
     <!-- INSERT BOOTSTRAP CDN -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+     crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+     crossorigin="anonymous">
     <!-- LINK STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
-
 <body>
     <div class="fullscreen-bg">
         <video loop muted autoplay class="fullscreen-bg__video">
@@ -29,17 +27,18 @@
     <div class="container">
         <h1 class="text-center">Welcome to PicIt!</h1>
         <hr>
-
+                        
         <div class="row">
-
+            
             <div class="col-md-6">
-                <div id="firstpage">
-                    <h2> Enter your travel experience here</h2>
+                <div id="firstpage">    
+                    <h2> Enter your travel experience here</h2> 
+                    <hr>      
                     <form id="cms">
                         <div class="form-group">
-                            <label for="title">Email address:</label>
-                            <input placeholder="required" type="text" class="form-control" id="emailadd">
-                            <h2 id="loggedemail"></h2>
+                            <!-- <label for="title">Email address:</label>
+                            <input placeholder="required" type="text" class="form-control" id="emailadd"> -->
+                            <h3 id="loggedemail">Email: </h3>
                             <br />
                             <label for="title">Destination:</label>
                             <input placeholder="" type="text" class="form-control" id="destInput">
@@ -50,79 +49,79 @@
                             <textarea placeholder="" class="form-control" rows="2" id="restInput"></textarea>
                             <label for="body">Attractions:</label>
                             <textarea placeholder="" class="form-control" rows="2" id="attrInput"></textarea>
-                            <!-- <div class="form-group">
-                            <label for="category">Select Email address:</label>
-                            <select class="form-control" id="savedemailadd">
-                        </select>
-                        </div> -->
                             <br />
                             <button type="submit" class="btn btn-success submit" id="submit-btn">Submit</button>
+                            <a href="/view" button type="submit" class="btn btn-success submit" id="home-btn">Home</button></a>
+                        </div>
+                    </form>
+                </div>                
+            </div>        
+        
+            <!-- <br> -->
+            <div class="col-md-6">
+                <div id="secondpage">           
+                    <h2>Confirm your info here</h2>
+                    <hr>
+                    <br>
+                                
+                    <div class="card-body" id="entry">
+                    <!-- content will go in here -->
+                    </div>
+                    <br>                      
+                </div>            
+            </div>
+    
+        </div>
+        <!-- first row ends here -->
+    
+        <br>  
+        <div id="thirdpage">
+        <form>
+            <div class="row" id="page3" >
+                <div class="col-md-12">
+                    <h2> Make your changes here and click update changes.</h2>  
+                    <form id="cms">
+                        <div class="card-body" id="update">
+                            <!-- <label for="title">Email address:</label>
+                            <input placeholder="" type="text" class="form-control" id="email-update"> -->
+                            <h3 id="loggedemail"></h3>
+                            <br />
+                            <label for="title">Destination:</label>
+                            <input placeholder="" type="text" class="form-control" id="dest-update">
+                            <br />
+                            <label for="body">Activities:</label>
+                            <textarea placeholder="" class="form-control" rows="2" id="act-update"></textarea>
+                            <label for="body">Restaurants:</label>
+                            <textarea placeholder="" class="form-control" rows="2" id="rest-update"></textarea>
+                            <label for="body">Attractions:</label>
+                            <textarea placeholder="" class="form-control" rows="2" id="attr-update"></textarea>                         
+                            <br />
+                            
+                            <!-- <a href="./view2.html"  div class="wrapper"> -->
+                            <!-- <button type="submit" class="btn btn-success update" id="update-changes">Update Changes</button> -->
+                            
+                            <div class="text-left">
+                                <a href="/view" class="btn btn-success update" id="update-changes">
+                                    <span class="fa fa-search"></span> Update changes
+                                </a>
+                            </div>
+                        
                         </div>
                     </form>
                 </div>
             </div>
-
-            <!-- <br> -->
-            <div class="col-md-6">
-                <div id="secondpage">
-                    <!-- <div class="row"> -->
-                    <!-- <div id="AllEntry">
-                        <form> -->
-                    <!-- <div class="entry-header">
-                                <h3 class="card-title"> -->
-                    <h2>Confirm your info here</h2>
-                    <!-- </h3>
-                            </div> -->
-                    <div class="card-body" id="entry">
-                        <!-- content will go in here -->
-                    </div>
-                    <br>
-                    <!-- </form>
-                    </div> -->
-                </div>
-                <!-- </div> -->
-            </div>
-
+        </form>
         </div>
-
-        <br>
-        <div id="thirdpage">
-            <form>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2> Make your changes here and click update changes.</h2>
-                        <form id="cms">
-                            <div class="card-body" id="update">
-                                <label for="title">Email address:</label>
-                                <input placeholder="" type="text" class="form-control" id="email-update">
-                                <!-- <h2 id="loggedemail"></h2> -->
-                                <br />
-                                <label for="title">Destination:</label>
-                                <input placeholder="" type="text" class="form-control" id="dest-update">
-                                <br />
-                                <label for="body">Activities:</label>
-                                <textarea placeholder="" class="form-control" rows="2" id="act-update"></textarea>
-                                <label for="body">Restaurants:</label>
-                                <textarea placeholder="" class="form-control" rows="2" id="rest-update"></textarea>
-                                <label for="body">Attractions:</label>
-                                <textarea placeholder="" class="form-control" rows="2" id="attr-update"></textarea>
-                                <br />
-                                <button type="submit" class="btn btn-success update" id="update-changes">Update Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-    </div>
+        <!-- third page ends here -->
+        
+    </div> 
+        <!-- container ends here -->
     <!-- Custom Script -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
     <script src="./js/addinfo.js" type="text/javascript"></script>
 </body>
-
 </html>
