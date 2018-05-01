@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // $("#loggedemail").html(localStorage.getItem("email"));
+  $("#loggedemail").html(localStorage.getItem("email"));
     $("#secondpage").hide();
     $("#thirdpage").hide();
     
@@ -9,8 +9,8 @@ $(document).ready(function () {
     $("#secondpage").show();
   
       var newDestination = {
-      // email: localStorage.getItem("email"),
-      email: $("#emailadd").val().trim(),
+      email: localStorage.getItem("email"),
+      // email: $("#emailadd").val().trim(),
       destination: $("#destInput").val().trim(),
       attractions: $("#attrInput").val().trim(),
       activities: $("#actiInput").val().trim(),
@@ -97,7 +97,7 @@ $(document).ready(function () {
     console.log("update entry id: ", id);
   
     $.get("/api/entry/" + id).then(function (data) {
-      $("#email-update").val(data.email);
+      $("#email-update").val(localStorage.getItem("email"),);
       $("#dest-update").val(data.destination);
       $("#act-update").val(data.attractions);
       $("#rest-update").val(data.activities);
@@ -117,7 +117,8 @@ $(document).ready(function () {
     console.log("update-changes id: ", id);
      
       var updatedinfo = {
-      email: $("#email-update").val().trim(),
+      // email: $("#email-update").val().trim(),
+      email: localStorage.getItem("email"),
       destination: $("#dest-update").val().trim(),
       attractions: $("#act-update").val().trim(),
       activities: $("#rest-update").val().trim(),
@@ -134,13 +135,6 @@ $(document).ready(function () {
       console.log("AFTER UPDAING : ", data);        
     });
   
-    // $.post("/api/new", updatedinfo)
-    //   .then(function (results) {
-    //     console.log("updated RESULTS: ", results);
-        
-      
-    //    }); //$.post ends here.   
-  
     //Empty each input box by replacing the value with an empty string
     $("#email-update").val("");
     $("#dest-update").val("");
@@ -151,7 +145,3 @@ $(document).ready(function () {
   }); //submit button ends here.
   
   });//document ready function ends here.
-  
-  
-
-  

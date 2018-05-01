@@ -7,6 +7,11 @@ h2.text-center{
     color: white;
     font-family: 'Quicksand', sans-serif;
 }
+h2#jumbotron-logo{
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 80px;
+}
 h3.text-center{
     color: white;
     font-family: 'Quicksand', sans-serif;
@@ -50,18 +55,18 @@ body{
     border-right: none;
     border-left: none;
     position: relative;
-    z-index: -1;
-    height: 500px;
+    z-index: 0;
+    height: 450px;
 }
 .no-video .video-container video,
 .touch .video-container video {
     display: none;
-    z-index: -1;
+    z-index: 0;
 }
 .no-video .video-container .poster,
 .touch .video-container .poster {
     display: block !important;
-    z-index: -1;
+    z-index: 0;
 }
 .video-container {
     position: relative;
@@ -71,61 +76,13 @@ body{
     width: 100%;
     overflow: hidden;
     background: #000;
-    z-index: -1;
+    z-index: 0;
 }
 .video-container .poster img {
     width: 100%;
     bottom: 0;
     position: absolute;
-    z-index: -1;
-}
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
-.video-container video {
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-}
-.video-container video.fillWidth {
-    width: 100%;
-    z-index: -1;
-}
-
-.panel panel-default{
-    opacity: 0.6;
-}
-
-/* COVER FOR VIEW PAGE */
-.homepage-hero-module {
-    border-right: none;
-    border-left: none;
-    position: relative;
-}
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
-}
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
-}
-.video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
-}
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+    z-index: 0;
 }
 .video-container .filter {
     z-index: 100;
@@ -140,14 +97,16 @@ body{
 }
 .video-container video.fillWidth {
     width: 100%;
+    z-index: -1;
 }
 
-.btn btn-outline-light btn-lg text-center{
-    background: rgba(0, 0, 0, 0.389)
+.panel panel-default{
+    opacity: 0.6;
 }
 
 .wrapper{
     text-align: center;
+    z-index: 1;
 }
 
 .card-title{
@@ -163,3 +122,7 @@ body{
     color: white; 
 }
 
+div#thirdpage{
+    border: 10px;
+    border-color: teal;
+}

@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+
+    <!-- FLIPCLOCK -->
 </head>
 <body>
     <div class="fullscreen-bg">
@@ -35,7 +37,10 @@
     <br>
     <h1 class="text-center">PIC It!</h1>
     <div class="container">
-        <h3 class="text-center">Offer ends in 15 minutes!</h3>
+        <h3 class="text-center">Offer ends in 15 Minutes.</h3>
+		<link rel="stylesheet" type="text/css" href="./assets/flipclockjs/flipclock.css">
+        <script src="/assets/flipclockjs/flipclock.js"></script>
+        
         <h2 class="text-center">Enter your email for a chance to win an all expenses paid, all-inclusive trip to Cabo San Lucas for four!</h2>
         <h3 class="text-center">Instant drawing result!</h3>
         <form id="form1">
@@ -65,10 +70,13 @@
         if (userLottoNum === systemLottoNum) {
             $(".drawing-result").append("<h1 class='text-center'>Congratulations, you won! More information will be sent to you via email.</h1>");
             console.log("Congratulations, you won!");
+            $(".drawing-result").append("<h2 class='text-center'>Check back next week for May's destination reveal and drawing!</h2>");
         }
         else {
-            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 3 seconds click <a href='./landing.html'>here</a></h2>");
+            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! Check back next week for May's destination reveal and drawing!</h2>");
+            $(".drawing-result").append("<h2 class='text-center'>If not redirected in 3 seconds click <a href='./landing.html'>here</a></h2>");
             console.log("Sorry, not this time!");
+           
         }
         setTimeout(function () {
             window.location.href = "./view.html"; //will redirect to your blog page (an ex: blog.html)
