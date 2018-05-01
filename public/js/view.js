@@ -26,7 +26,7 @@ $("#search-btn").on("click", function(event) {
   var destinationSearched = $("#destination-search").val().trim();
 
   // Make an AJAX get request to our api, including the user's book in the url
-  $.get("/api/" + destinationSearched, function(data) {
+  $.get("/api/entry" + destinationSearched, function(data) {
 
     console.log(data);
     // Call our renderBooks function to add our books to the page
