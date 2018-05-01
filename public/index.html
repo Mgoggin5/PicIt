@@ -1,23 +1,3 @@
-<?php 
-if(isset($_POST['submit'])){
-    $to = "wwiinavi@hotmail.com";
-    $from = $_POST['email']; // this is the sender's Email address
-    <!-- $first_name = $_POST['first_name']; -->
-    <!-- $last_name = $_POST['last_name']; -->
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
-    $message = "Sorry, you didn't win.";
-    <!-- $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message']; -->
-
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
-    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-    echo "Mail Sent. Thank you, we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,19 +8,24 @@ if(isset($_POST['submit'])){
         content="ie=edge">
     <title>PIC It</title>
     <!-- INSERT BOOTSTRAP CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
 
     <!-- LINK STYLESHEETS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
 
 <body>
     <div class="fullscreen-bg">
-
+        <video loop muted autoplay class="fullscreen-bg__video">
+            <source src="./assets/videos/Cover.mp4" type="video/mp4">
+        </video>
     </div>
     <br>
     <br>
@@ -51,21 +36,17 @@ if(isset($_POST['submit'])){
     <br>
     <h1 class="text-center">PIC It!</h1>
     <div class="container">
-        <h2 class="text-center">Offer ends in 5 minutes!</h1>
-            <h2 class="text-center">Enter your email for a chance to win a free trip to Cabo!</h2>
-            <h3 class="text-center">Instant drawing result!</h3>
-            <div id="emailBox" class="input-group">
-                <div class="col-md-8">
-                    <form action="/landing" method="POST">
-                        <input id='email' name="email" type="email" class="form-control col-md-8" placeholder="Your Email" aria-describedby="basic-addon2"
-                            required>
-                        <a href="/add">
-                            <button id="raffle" type="button" class="btn navbar-btn col-md-4 text-center">Sign Me Up</button>
-                        </a>
-                    </form>
-
-                </div>
+        <h3 class="text-center">Offer ends in 15 minutes!</h3>
+        <h2 class="text-center">Enter your email for a chance to win an all expenses paid, all-inclusive trip to Cabo San Lucas for four!</h2>
+        <h3 class="text-center">Instant drawing result!</h3>
+        <form id="form1">
+            <div class="input-group">
+                <input type="text" id="email" class="form-control" placeholder="Enter Your Email Here">
+                <span class="input-group-btn">
+                    <button href="/view_dest" class="btn btn-default" type="submit" id="lotto">Let's Go!</button>
+                </span>
             </div>
+        </form>
     </div>
     <div class="drawing-result">
         <!-- INSERT CODE FOR RANDOM NUMBER LOTTERY GENERATOR -->
@@ -86,5 +67,27 @@ if(isset($_POST['submit'])){
         width: 100%;
     }
 </style>
-
 </html>
+<!-- LOTTERY TEST -->
+<script>
+    $("#form1").on("submit", function () {
+        event.preventDefault();
+        console.log("lotto btn clicked");
+        var userLottoNum = "";
+        var systemLottoNum = "6816224";
+        var random = Math.floor(Math.random() * 9000000) + 1;
+        userLottoNum = random + userLottoNum;
+        console.log(userLottoNum);
+        if (userLottoNum === systemLottoNum) {
+            $(".drawing-result").append("<h1 class='text-center'>Congratulations, you won! More information will be sent to you via email.</h1>");
+            console.log("Congratulations, you won!");
+        }
+        else {
+            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 5 seconds click <a href=/view_dest>here</a></h2>");
+            console.log("Sorry, not this time!");
+        }
+        setTimeout(function () {
+            window.location.href = "/view_dest"; //will redirect to your blog page (an ex: blog.html)
+        }, 5000); //will call the function after 5 secs.
+    });
+</script>
