@@ -36,7 +36,8 @@
 			
 			<div class="col-md-6">
 				<div id="firstpage">	
-					<h2> Enter your travel experience here</h2>			
+					<h2> Enter your travel experience here</h2>	
+					<hr>		
 					<form id="cms">
 						<div class="form-group">
 							<!-- <label for="title">Email address:</label>
@@ -54,6 +55,7 @@
 							<textarea placeholder="" class="form-control" rows="2" id="attrInput"></textarea>
 							<br />
 							<button type="submit" class="btn btn-success submit" id="submit-btn">Submit</button>
+							<a href="/view" button type="submit" class="btn btn-success submit" id="home-btn">Home</button></a>
 						</div>
 					</form>
 				</div>				
@@ -64,6 +66,8 @@
 			<div class="col-md-6">
 				<div id="secondpage">			
 					<h2>Confirm your info here</h2>
+					<hr>
+					<br>
 								
 					<div class="card-body" id="entry">
 					<!-- content will go in here -->
@@ -80,7 +84,7 @@
 
 		<div id="thirdpage">
 		<form>
-			<div class="row" >
+			<div class="row" id="page3" >
 				<div class="col-md-12">
 					<h2> Make your changes here and click update changes.</h2>	
 					<form id="cms">
@@ -99,8 +103,17 @@
 							<label for="body">Attractions:</label>
 							<textarea placeholder="" class="form-control" rows="2" id="attr-update"></textarea>							
 							<br />
+							
+							<!-- <a href="./view2.html"  div class="wrapper"> -->
+							<!-- <button type="submit" class="btn btn-success update" id="update-changes">Update Changes</button> -->
+							
+							<div class="text-left">
+								<a href="/view" class="btn btn-success update" id="update-changes">
+									<span class="fa fa-search"></span> Update changes
+								</a>
+							</div>
 
-							<button type="submit" class="btn btn-success update" id="update-changes">Update Changes</button>
+						
 						</div>
 					</form>
 				</div>

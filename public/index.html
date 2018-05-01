@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +13,13 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <!-- LINK STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 </head>
-
 <body>
     <div class="fullscreen-bg">
         <video loop muted autoplay class="fullscreen-bg__video">
@@ -41,9 +40,9 @@
         <h3 class="text-center">Instant drawing result!</h3>
         <form id="form1">
             <div class="input-group">
-                <input type="text" id="email" class="form-control" placeholder="Enter Your Email Here">
+                <input id="email" type="text" class="form-control" required placeholder="Enter Your Email Here">
                 <span class="input-group-btn">
-                    <button href="/view_dest" class="btn btn-default" type="submit" id="lotto">Let's Go!</button>
+                    <button class="btn btn-default" type="submit" id="lotto">Let's Go!</button>
                 </span>
             </div>
         </form>
@@ -51,22 +50,7 @@
     <div class="drawing-result">
         <!-- INSERT CODE FOR RANDOM NUMBER LOTTERY GENERATOR -->
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <!-- <script src="jquery-3.3.1.min.js"></script> -->
-    <script src="./js/main.js"></script>
 </body>
-<style>
-    .input-group {
-        width: 100%
-    }
-
-    button {
-        width: 100%;
-    }
-</style>
 </html>
 <!-- LOTTERY TEST -->
 <script>
@@ -83,11 +67,11 @@
             console.log("Congratulations, you won!");
         }
         else {
-            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 5 seconds click <a href=/view_dest>here</a></h2>");
+            $(".drawing-result").append("<h2 class='text-center'>Sorry, not this time! If not redirected in 3 seconds click <a href='./landing.html'>here</a></h2>");
             console.log("Sorry, not this time!");
         }
         setTimeout(function () {
-            window.location.href = "/view_dest"; //will redirect to your blog page (an ex: blog.html)
-        }, 5000); //will call the function after 5 secs.
+            window.location.href = "./view.html"; //will redirect to your blog page (an ex: blog.html)
+        }, 3000); //will call the function after 5 secs.
     });
 </script>
