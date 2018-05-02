@@ -25,9 +25,9 @@ $(document).ready(function () {
         button3.addClass("btn btn-default btn-xs activities");
         // div.append(p)
         // button.attr("data", "rest1")
-        button.append("Restaurant");
-        button2.append("Fun");
-        button3.append("Features");
+        // button.append("Restaurant");
+        // button2.append("Fun");
+        // button3.append("Features");
         div.append("<h2>" + data[i].destination + "</h2>");
         div.append("<p>Activities: " + data[i].activities + "</p>");
         div.append("<p>Restuarants: " + data[i].restaurants + "</p>");
