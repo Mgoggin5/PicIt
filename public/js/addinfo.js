@@ -143,7 +143,7 @@ $(document).ready(function () {
     $("#rest-update").val("");
     $("#attr-update").val("");
   
-    window.alert("Successfully updated changes!!!");
+    window.alert("Changes Successfully Updated!!!");
   
     setTimeout(function () {
       window.location.href = "./view.html";
