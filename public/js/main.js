@@ -1,23 +1,24 @@
-$(document).ready(function () {
-  $(function () {
+//from author.js activity 13
+$(document).ready(function() {
+//   $(function () {
 
-    $("#lotto").on('click', function (event) {
+//     $("#lotto").on('click', function (event) {
 
-      var email = $("#email").val().trim();
+//       var email = $("#email").val().trim();
 
-      localStorage.setItem("email", email);
-    });
+//       localStorage.setItem("email", email);
+//     });
   
 
-});
-
+// });
 
 // INSERT LOTTO FUNCTION CODE 
 $("#lotto").on("click", function() {
   var userLottoNum = "";
   var systemLottoNum = "6";
+  var email = $("#email").val().trim();
 
-
+  localStorage.setItem("email", email);
   for (var i = 0; i < 9; i++) {
       var random = Math.floor(Math.random() * 10) + 1;
       userLottoNum = random + userLottoNum;
@@ -34,4 +35,4 @@ $("#lotto").on("click", function() {
 
   }
 });
-})
+});

@@ -5,8 +5,8 @@
     "database": "picit_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 4300
-
+    "port": 8889
+    
   },
   "test": {
     "username": "root",
