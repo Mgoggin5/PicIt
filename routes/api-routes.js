@@ -28,8 +28,6 @@ module.exports = function (app) {
       res.json(dbtravelinfo);
     });
     console.log("app.get api/entry: ", req.body);
-<<<<<<< HEAD
-=======
   });
 
   app.get("/api/entry/data/:destination", function (req, res) {
@@ -42,7 +40,6 @@ module.exports = function (app) {
       res.json(dbtravelinfo);
     });
     // console.log("app.get api/entry: ", req.body);
->>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
   });
 
   // delte for deleting record.
@@ -68,9 +65,5 @@ module.exports = function (app) {
     });
   });
 
-<<<<<<< HEAD
-} // module export function app ends here.
-=======
 } // module export function app ends here.
 
->>>>>>> 7292d4178bcaf79a8147076e86a9b0db876efaf3
