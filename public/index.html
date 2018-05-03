@@ -56,6 +56,9 @@
 <script>
     $("#form1").on("submit", function () {
         event.preventDefault();
+        var email = $("#email").val().trim();
+        localStorage.setItem("email", email);
+
         console.log("lotto btn clicked");
         var userLottoNum = "";
         var systemLottoNum = "6816224";

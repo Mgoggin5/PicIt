@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-
- #thirdpage{
-     width: 60%;
- }
- #firstpage, #secondpage, #thirdpage{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    font-size: 17px;
-    margin-top: -30px;
- } 
- #update{
-     color: white;
- }
- .entryclass {
-    font: bold;
-    font-size: 15px;
-    color: white;
-    line-height: 20px;
-} 
- .form-control {
-    color: black;
-    /* background-color: lightslategrey; */
- }
-=======
 #thirdpage{
     width: 60%;
 }
@@ -43,7 +19,6 @@
    color: black;
    /* background-color: lightslategrey; */
 }
->>>>>>> 16a2cf37b3095e7b0cfba74fc185ed63f28a996e
 
 h1.text-center{
     color: white;
